@@ -1,15 +1,14 @@
-const hotelsData = [
+const Hotels = [
   {
     id: 1,
-    name: "Britannia International Hotel ",
+    name: "Britannia International Hotel",
     Country: "Italy",
-    // place: "Canary Wharf",
-    Star: "⭐⭐⭐⭐⭐",
-    location: "Canary Wharf Italy,",
+    location: "Canary Wharf, Italy",
     rating: 6.9,
     reviews: 2109,
-    price: 11000, // ✅ Numeric Price
-    availableDates: "2025-02-28", // ✅ Correct Format
+    price: 11000,
+    availableDates: "2025-02-28",
+    stars: 4, // ⭐ Hotel ki total star rating
     discription:
       "Great place to stay - we booked it on a chance as we needed cheap accommodation on a Monday night near to Brixton Academy - it's a short walk from a tube",
     mainImage: "/Images/hotel1.webp",
@@ -28,12 +27,13 @@ const hotelsData = [
     id: 2,
     name: "France Court Hotel",
     Country: "France",
-    Star: "⭐⭐⭐⭐",
     location: "St Katharine's France",
     rating: 8.2,
     reviews: 3405,
     price: 5000,
     availableDates: "2025-03-05",
+    stars: 3, // ⭐ Hotel ki total star rating
+
     discription:
       "Can't beat this for the price in a London hotel. Booking through Agoda considerably cheaper than other sites",
     mainImage: "/Images/france.jpeg",
@@ -52,7 +52,7 @@ const hotelsData = [
     id: 3,
     name: " Minimalistic germany Hotel",
     Country: "Germany",
-    Star: "⭐⭐",
+    stars: 2,
     location: "St Katharine's, Germany",
     rating: 8.2,
     reviews: 3405,
@@ -77,7 +77,7 @@ const hotelsData = [
     name: "America special Apartment",
     Country: "America",
     // place: "in Holloway Road",
-    Star: "⭐⭐⭐⭐",
+    stars: 2,
     location: "St Katharine's, America",
     rating: 8.2,
     reviews: 3405,
@@ -101,7 +101,7 @@ const hotelsData = [
     name: "Holiday Inn Express Japan",
     Country: "Japan",
     // place: "- Dartford",
-    Star: "⭐⭐⭐⭐",
+    stars: 1,
     location: "St Katharine's, Japan",
     rating: 8.2,
     reviews: 3405,
@@ -127,7 +127,7 @@ const hotelsData = [
     name: "PubLove @ The White Ferry",
     Country: "Austria",
     // place: "Victoria",
-    Star: "⭐⭐⭐⭐⭐",
+    stars: 5,
     location: "St Katharine's Austria",
     rating: 8.2,
     reviews: 3405,
@@ -150,7 +150,7 @@ const hotelsData = [
     id: 7,
     name: " Canada Queens Park Hotel",
     Country: "Canada",
-    Star: "⭐⭐⭐⭐",
+    stars: 4, // ⭐ Hotel ki total star rating
     location: "St Katharine's, Canada",
     rating: 8.2,
     reviews: 3405,
@@ -175,7 +175,7 @@ const hotelsData = [
     name: "Safestay Canada Elephant",
     Country: "Canada",
     // place: "and Castle",
-    Star: "⭐⭐⭐",
+    stars: 3, // ⭐ Hotel ki total star rating
     location: "St Katharine's, Canada",
     rating: 8.2,
     reviews: 3405,
@@ -198,7 +198,7 @@ const hotelsData = [
     name: "ibis budget Dubai Heathrow ",
     Country: "Dubai",
     // place: "Central",
-    Star: "⭐⭐⭐⭐",
+    stars: 2, // ⭐ Hotel ki total star rating
     location: "St Katharine's Dubai",
     rating: 8.2,
     reviews: 3405,
@@ -224,7 +224,7 @@ const hotelsData = [
     name: "PubLove @ The Bombay Ferry",
     Country: "Bombay",
     // place: " Victoria",
-    Star: "⭐⭐⭐⭐⭐",
+    stars: 1, // ⭐ Hotel ki total star rating
     location: "St Katharine's , Bombay",
     rating: 8.2,
     reviews: 3405,
@@ -250,7 +250,7 @@ const hotelsData = [
     name: "The England Ferry",
     Country: "England",
     // place: " Victoria",
-    Star: "⭐",
+    stars: 5, // ⭐ Hotel ki total star rating
     location: "St Katharine's ,England",
     rating: 8.2,
     reviews: 3405,
@@ -275,7 +275,7 @@ const hotelsData = [
     name: "PubLove @ The White Ferry",
     Country: "Australia",
     // place: " Victoria",
-    Star: "⭐",
+    stars: 4, // ⭐ Hotel ki total star rating
     location: "St Katharine's , Australia",
     rating: 8.2,
     reviews: 3405,
@@ -301,8 +301,8 @@ const hotelsData = [
     name: "Italy International Hotel ",
     Country: "Italy",
     // place: "Canary Wharf",
-    Star: "⭐⭐⭐⭐⭐",
-    location: "Canary Wharf, Italy",
+    stars: 3, // ⭐ Hotel ki total star rating
+    location: "Canary Wharf Italy,",
     rating: 6.9,
     reviews: 2109,
     price: 15000, // ✅ Numeric Price
@@ -325,7 +325,7 @@ const hotelsData = [
     id: 14,
     name: "Mowbray Court Hotel",
     Country: "France",
-    Star: "⭐⭐⭐",
+    stars: 3, // ⭐ Hotel ki total star rating
     location: "St Katharine's France",
     rating: 8.2,
     reviews: 3405,
@@ -350,7 +350,7 @@ const hotelsData = [
     id: 15,
     name: "Modern & Minimalistic 2B Flat",
     Country: "Germany",
-    Star: "⭐⭐⭐",
+    stars: 3, // ⭐ Hotel ki total star rating
     location: "St Katharine's, Germany",
     rating: 8.2,
     reviews: 3405,
@@ -376,7 +376,8 @@ const hotelsData = [
     name: "Modern One Bedroom Apartment",
     Country: "America",
     // place: "in Holloway Road",
-    Star: "⭐⭐",
+
+    stars: 1, // ⭐ Hotel ki total star rating
     location: "St Katharine's,America",
     rating: 8.2,
     reviews: 3405,
@@ -400,7 +401,8 @@ const hotelsData = [
     name: "Holiday Inn Express Japan",
     Country: "Japan",
     // place: "- Dartford",
-    Star: "⭐",
+    stars: 5, // ⭐ Hotel ki total star rating
+
     location: "St Katharine's, Japan",
     rating: 8.2,
     reviews: 3405,
@@ -426,7 +428,7 @@ const hotelsData = [
     name: "PubLove @ The White Ferry",
     Country: "Austria",
     // place: "Victoria",
-    Star: "⭐⭐⭐⭐⭐",
+    stars: 4, // ⭐ Hotel ki total star rating
     location: "St Katharine's Austria",
     rating: 8.2,
     reviews: 3405,
@@ -450,7 +452,7 @@ const hotelsData = [
     id: 19,
     name: "African Queens Park Hotel",
     Country: "Africa",
-    Star: "⭐⭐⭐⭐",
+    stars: 3, // ⭐ Hotel ki total star rating
     location: "St Katharine's, Africa",
     rating: 8.2,
     reviews: 3405,
@@ -476,7 +478,7 @@ const hotelsData = [
     name: "Safestay African Elephant",
     Country: "Africa",
     // place: "and Castle",
-    Star: "⭐⭐⭐",
+    stars: 2, // ⭐ Hotel ki total star rating
     location: "St Katharine's,Africa",
     rating: 8.2,
     reviews: 3405,
@@ -500,7 +502,7 @@ const hotelsData = [
     name: "ibis budget Dubai Heathrow ",
     Country: "Dubai",
     // place: "Central",
-    Star: "⭐⭐⭐",
+    stars: 1, // ⭐ Hotel ki total star rating
     location: "St Katharine's  Dubai",
     rating: 8.2,
     reviews: 3405,
@@ -525,7 +527,7 @@ const hotelsData = [
     name: " The Special Bombay Ferry",
     Country: "Bombay",
     // place: " Victoria",
-    Star: "⭐⭐⭐",
+    stars: 5, // ⭐ Hotel ki total star rating
     location: "St Katharine's , Bombay",
     rating: 8.2,
     reviews: 3405,
@@ -551,7 +553,8 @@ const hotelsData = [
     name: "PubLove @ The White Ferry",
     Country: "England",
     // place: " Victoria",
-    Star: "⭐",
+    stars: 4, // ⭐ Hotel ki total star rating
+
     location: "St Katharine's ,England",
     rating: 8.2,
     reviews: 3405,
@@ -576,7 +579,7 @@ const hotelsData = [
     name: "The Australia Ferry",
     Country: "Australia",
     // place: " Victoria",
-    Star: "⭐",
+    stars: 3, // ⭐ Hotel ki total star rating
     location: "St Katharine's , Australia",
     rating: 8.2,
     reviews: 3405,
@@ -597,5 +600,4 @@ const hotelsData = [
     ],
   },
 ];
-
-export default hotelsData;
+export default Hotels;

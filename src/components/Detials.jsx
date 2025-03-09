@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import hotels from "./Hotels"; // Import the hotels data
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Header";
+import Hotels from "./Hotels";
 
 const Details = () => {
   const { id } = useParams();
-  const hotel = hotels.find((h) => h.id == id);
+  const hotel = Hotels.find((h) => h.id == id);
   console.log("show id", id);
   if (!hotel) {
     return <h2 className="text-center mt-5">Hotel not found!</h2>;

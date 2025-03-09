@@ -1,29 +1,43 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setSortBy, toggleSortOrder } from "../../Redux/Hotelslice";
-import { useState } from "react";
+import {
+  setActiveButton,
+  setSortBy,
+  toggleSortOrder,
+  setActiveDropdown, // ✅ Import this
+} from "../../Redux/Hotelslice";
 import "./scss.scss";
+
 const SortingButtons = () => {
   const dispatch = useDispatch();
-  const { isAscending } = useSelector((state) => state.hotels);
-  const [activeDropdown, setActiveDropdown] = useState(null); // Single state for both dropdowns
-
-  const toggleDropdown = (dropdown) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
-  };
+  const { isAscending, activeButton, activeDropdown } = useSelector(
+    (state) => state.hotels
+  );
 
   return (
-    <div className="btn-group mb-2 w-100 ">
+    <div className="btn-group mb-2" style={{ width: "1000px" }}>
       <button
-        className=" p-2 btn btn-primary border btn-lg rounded"
+        className={`p-2 btn btn-lg border rounded ${
+          activeButton === "ourTopPicks" ? "btn-primary text-white " : ""
+        }`}
         style={{ width: "15%" }}
+        onClick={() => dispatch(setActiveButton("ourTopPicks"))}
       >
         Our top picks
       </button>
+
       {/* Top Reviewed Dropdown */}
-      <div>
+      <div
+        className="dropdown-container"
+        onBlur={() => dispatch(setActiveDropdown(null))}
+      >
         <button
-          className=" custom-btn p-3 btn border btn-lg"
-          onClick={() => toggleDropdown("topReviewed")}
+          className={`custom-btn p-3 btn border btn-lg ${
+            activeButton === "topReviewed" ? "btn-primary text-white" : ""
+          }`}
+          onClick={() => {
+            dispatch(setActiveDropdown("topReviewed"));
+            dispatch(setActiveButton("topReviewed"));
+          }}
         >
           Top Reviewed ▼
         </button>
@@ -33,40 +47,52 @@ const SortingButtons = () => {
             style={{ zIndex: 1050, cursor: "pointer", width: "250px" }}
           >
             <div
-              className="fw-bold p-2 ms-1 "
+              className="fw-bold p-2 ms-1"
               style={{ backgroundColor: "rgb(237, 244, 247)" }}
             >
               Best Rated by
             </div>
-            <div className="fw-medium p-2  border">All guests</div>
-            <div className="fw-medium p-2  border">Buisness Travelers</div>
-            <div className="fw-medium p-2  border">Couples</div>
-            <div className="fw-medium p-2  border">Solo Travelers</div>
-            <div className="fw-medium p-2  border">
+            <div className="fw-medium p-2 border">All guests</div>
+            <div className="fw-medium p-2 border">Business Travelers</div>
+            <div className="fw-medium p-2 border">Couples</div>
+            <div className="fw-medium p-2 border">Solo Travelers</div>
+            <div className="fw-medium p-2 border">
               Families with young children
             </div>
-            <div className="fw-medium p-2  border">
+            <div className="fw-medium p-2 border">
               Families with older children
             </div>
-            <div className="fw-medium p-2  border">Groups</div>
+            <div className="fw-medium p-2 border">Groups</div>
           </div>
         )}
       </div>
+
       <button
-        className="custom-btn p-3 btn border btn-lg rounded"
+        className={`custom-btn p-3 btn border btn-lg rounded ${
+          activeButton === "priceSort" ? "btn-primary text-white" : ""
+        }`}
         onClick={() => {
           dispatch(setSortBy("price_lowest"));
           dispatch(toggleSortOrder());
+          dispatch(setActiveButton("priceSort"));
         }}
       >
         {isAscending ? "Check highest price" : "Check Lowest price"}
       </button>
 
       {/* Distance Dropdown */}
-      <div>
+      <div
+        className="dropdown-container"
+        onBlur={() => dispatch(setActiveDropdown(null))}
+      >
         <button
-          className="custom-btn p-3 btn border btn-lg"
-          onClick={() => toggleDropdown("Distance")}
+          className={`custom-btn p-3 btn border btn-lg ${
+            activeButton === "Distance" ? "btn-primary text-white" : ""
+          }`}
+          onClick={() => {
+            dispatch(setActiveDropdown("Distance"));
+            dispatch(setActiveButton("Distance"));
+          }}
         >
           Distance ▼
         </button>
@@ -82,12 +108,7 @@ const SortingButtons = () => {
               overflow: "auto",
             }}
           >
-            <div
-              className="fw-bold p-2 ms-1 mt-3"
-              style={{ backgroundColor: "rgb(237, 244, 247)" }}
-            >
-              Airports
-            </div>
+            <div className="fw-bold p-2 ms-1 mt-3">Airports</div>
             <div
               className="fw-medium p-2 text-start ps-4"
               style={{ fontSize: "15px" }}
@@ -98,19 +119,14 @@ const SortingButtons = () => {
               className="fw-medium p-2 text-start ps-4"
               style={{ fontSize: "15px" }}
             >
-              Gatvitch Airports
+              Gatwick Airport
             </div>
-            <div
-              className="fw-bold p-2 ms-1 "
-              style={{ backgroundColor: "rgb(237, 244, 247)" }}
-            >
-              Transportation
-            </div>
+            <div className="fw-bold p-2 ms-1">Transportation</div>
             <div
               className="fw-medium p-2 text-start ps-4"
               style={{ fontSize: "15px" }}
             >
-              Padding Railway Station
+              Paddington Railway Station
             </div>
             <div
               className="fw-medium p-2 text-start ps-4"
@@ -118,12 +134,7 @@ const SortingButtons = () => {
             >
               Victoria Railway Station
             </div>
-            <div
-              className="fw-bold p-2 ms-1 "
-              style={{ backgroundColor: "rgb(237, 244, 247)" }}
-            >
-              Top landmarks
-            </div>
+            <div className="fw-bold p-2 ms-1">Top landmarks</div>
             <div
               className="fw-medium p-2 text-start ps-4"
               style={{ fontSize: "15px" }}
@@ -134,21 +145,33 @@ const SortingButtons = () => {
               className="fw-medium p-2 text-start ps-4"
               style={{ fontSize: "15px" }}
             >
-              Bays water
+              Bayswater
             </div>
             <div
               className="fw-medium p-2 text-start ps-4"
               style={{ fontSize: "15px" }}
             >
-              Convent Garden
+              Covent Garden
             </div>
           </div>
         )}
       </div>
-      <button className="custom-btn p-3 btn border btn-lg rounded">
+
+      <button
+        className={`custom-btn p-3 btn border btn-lg rounded ${
+          activeButton === "nearest" ? "btn-primary text-white" : ""
+        }`}
+        onClick={() => dispatch(setActiveButton("nearest"))}
+      >
         Nearest to ▼
       </button>
-      <button className="custom-btn p-3 btn border btn-lg rounded">
+
+      <button
+        className={`custom-btn p-3 btn border btn-lg rounded ${
+          activeButton === "bestReviewed" ? "btn-primary text-white" : ""
+        }`}
+        onClick={() => dispatch(setActiveButton("bestReviewed"))}
+      >
         Best reviewed
       </button>
     </div>

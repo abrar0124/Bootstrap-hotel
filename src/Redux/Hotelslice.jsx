@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import ProductsData from "../components/ProductsData";
-import hotelsData from "../components/Hotels";
 
 const initialState = {
-  hotels: hotelsData,
   products: ProductsData,
   searchQuery: "",
   selectedStars: [],
@@ -15,6 +13,8 @@ const initialState = {
   selectedCountry: null,
   minprice: null,
   maxprice: null,
+  activeButton: "ourTopPicks",
+  activeDropdown: null, // ✅ Add this
 };
 
 const hotelSlice = createSlice({
@@ -57,6 +57,13 @@ const hotelSlice = createSlice({
     setSelectedCountry: (state, action) => {
       state.selectedCountry = action.payload;
     },
+    setActiveButton: (state, action) => {
+      state.activeButton = action.payload;
+    },
+    setActiveDropdown: (state, action) => {
+      state.activeDropdown =
+        state.activeDropdown === action.payload ? null : action.payload;
+    },
   },
 });
 
@@ -71,6 +78,8 @@ export const {
   setSortBy,
   toggleSortOrder,
   setSelectedProduct,
+  setActiveButton,
+  setActiveDropdown,
   setSelectedCountry, // ✅ Export karein
 } = hotelSlice.actions;
 
