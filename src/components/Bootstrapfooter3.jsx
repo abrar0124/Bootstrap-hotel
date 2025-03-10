@@ -14,11 +14,10 @@ const Bootstrapfooter3 = () => {
               All material herein © 2005-2025 Agoda Company Pte. Ltd. All Rights
               Reserved. <br />
               Agoda is part of Booking Holdings Inc, the world leader in online
-              travel & related services.{" "}
+              travel & related services.
             </>
           }
         />
-
         <div className="row justify-content-center">
           <div className="col-6 col-md-2">
             <img
