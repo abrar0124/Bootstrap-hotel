@@ -8,7 +8,7 @@ const hotelsData = [
     name: "Belgrave Hotel Oval",
     price: 56000,
     stars: 3,
-    rating: 4,
+    rating: 6.9,
     review: "6.9 Good",
     reviewsCount: 434,
     description: "Beautiful residential area, near the embassy row.",
@@ -18,7 +18,7 @@ const hotelsData = [
     name: "B’Shan Apartments",
     price: 33000,
     stars: 2,
-    rating: 4,
+    rating: 3.4,
     review: "5.9 Review Score",
     reviewsCount: 3,
     description: "Stone’s throw away from Kensington Palace.",
@@ -28,7 +28,7 @@ const hotelsData = [
     name: "Park Avenue Hyde Park",
     price: 45000,
     stars: 1,
-    rating: 4,
+    rating: 2.9,
     review: "6.7 Good",
     reviewsCount: 2064,
     description:
@@ -48,6 +48,8 @@ const Reviews = () => {
     selectedCountry,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const filterHotels = () => {
@@ -62,9 +64,14 @@ const Reviews = () => {
         (selectedDate == null || hotel.availableDates === selectedDate) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
-    if (sortBy === "price_lowest") {
+    if (selectedRating === "price_lowest") {
       assignValue.sort((a, b) =>
-        isAscending ? a.price - b.price : b.price - a.price
+        isAscendingRating ? a.price - b.price : b.price - a.price
+      );
+    }
+    if (sortBy === "Rating") {
+      assignValue.sort((a, b) =>
+        isAscending ? a.rating - b.rating : b.rating - a.rating
       );
     }
     setFilteredHotels(assignValue);
@@ -84,6 +91,8 @@ const Reviews = () => {
     selectedDate,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   ]);
   return (
     <>
@@ -100,12 +109,12 @@ const Reviews = () => {
                       <div className=" hover-shadow  card-body">
                         <h5 className="text-primary">{hotel.name}</h5>
                         <p className="mb-1">
-                          {hotel.review} <br />
+                          {hotel.rating} <br />
                           <small className="text-muted">
                             Based on {hotel.reviewsCount} reviews
                           </small>
                         </p>
-                        <div className="d-flex flex-wrap">
+                        <div className="d-flex flex-wrap justify-content-center">
                           {[1, 2, 3, 4, 5].map((_, index) => (
                             <img
                               key={index}
@@ -115,7 +124,6 @@ const Reviews = () => {
                                   : "/Images/gray.jpeg"
                               }
                               width="20"
-                              className="me-1"
                             />
                           ))}
                         </div>

@@ -3,23 +3,23 @@ import {
   setActiveButton,
   setSortBy,
   toggleSortOrder,
-  setActiveDropdown, // ✅ Import this
+  setActiveDropdown,
+  setSelectedRating,
+  toggleRatingorder,
 } from "../../Redux/Hotelslice";
 import "./scss.scss";
 
 const SortingButtons = () => {
   const dispatch = useDispatch();
-  const { isAscending, activeButton, activeDropdown } = useSelector(
-    (state) => state.hotels
-  );
+  const { isAscending, activeButton, activeDropdown, isAscendingRating } =
+    useSelector((state) => state.hotels);
 
   return (
-    <div className="btn-group mb-2" style={{ width: "1000px" }}>
+    <div className="btn-group mb-2 " style={{ width: "960px" }}>
       <button
-        className={`p-2 btn btn-lg border rounded ${
+        className={`p-2 btn btn-lg border rounded fs ${
           activeButton === "ourTopPicks" ? "btn-primary text-white " : ""
         }`}
-        style={{ width: "15%" }}
         onClick={() => dispatch(setActiveButton("ourTopPicks"))}
       >
         Our top picks
@@ -31,7 +31,7 @@ const SortingButtons = () => {
         onBlur={() => dispatch(setActiveDropdown(null))}
       >
         <button
-          className={`custom-btn p-3 btn border btn-lg ${
+          className={`custom-btn p-3 btn border btn-lg fs ${
             activeButton === "topReviewed" ? "btn-primary text-white" : ""
           }`}
           onClick={() => {
@@ -39,7 +39,7 @@ const SortingButtons = () => {
             dispatch(setActiveButton("topReviewed"));
           }}
         >
-          Top Reviewed ▼
+          Top Reviewed
         </button>
         {activeDropdown === "topReviewed" && (
           <div
@@ -68,7 +68,7 @@ const SortingButtons = () => {
       </div>
 
       <button
-        className={`custom-btn p-3 btn border btn-lg rounded ${
+        className={`custom-btn p-3 btn border btn-lg rounded fs ${
           activeButton === "priceSort" ? "btn-primary text-white" : ""
         }`}
         onClick={() => {
@@ -86,7 +86,7 @@ const SortingButtons = () => {
         onBlur={() => dispatch(setActiveDropdown(null))}
       >
         <button
-          className={`custom-btn p-3 btn border btn-lg ${
+          className={`custom-btn p-3 btn border btn-lg fs ${
             activeButton === "Distance" ? "btn-primary text-white" : ""
           }`}
           onClick={() => {
@@ -94,7 +94,7 @@ const SortingButtons = () => {
             dispatch(setActiveButton("Distance"));
           }}
         >
-          Distance ▼
+          See Distance
         </button>
 
         {activeDropdown === "Distance" && (
@@ -158,21 +158,27 @@ const SortingButtons = () => {
       </div>
 
       <button
-        className={`custom-btn p-3 btn border btn-lg rounded ${
+        className={`custom-btn p-3 btn border btn-lg rounded fs ${
           activeButton === "nearest" ? "btn-primary text-white" : ""
         }`}
         onClick={() => dispatch(setActiveButton("nearest"))}
       >
-        Nearest to ▼
+        Nearest to
       </button>
 
       <button
-        className={`custom-btn p-3 btn border btn-lg rounded ${
+        className={`custom-btn p-3 btn border btn-lg rounded fs ${
           activeButton === "bestReviewed" ? "btn-primary text-white" : ""
         }`}
-        onClick={() => dispatch(setActiveButton("bestReviewed"))}
+        onClick={() => {
+          dispatch(setActiveButton("bestReviewed"));
+          dispatch(setSelectedRating("Rating"));
+          dispatch(toggleRatingorder());
+        }}
       >
-        Best reviewed
+        {isAscendingRating
+          ? " Check Highest Reviewed"
+          : " Check Lowest Reviewed"}
       </button>
     </div>
   );

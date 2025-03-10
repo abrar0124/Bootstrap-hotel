@@ -11,7 +11,7 @@ const hotelsData = [
     stars: 3,
     availableDates: "2025-03-18",
     image: "/Images/break1.webp",
-    rating: 4,
+    rating: 7.7,
     review: "6.9 Good",
     reviewsCount: 434,
     description: "Beautiful residential area, near the embassy row.",
@@ -24,7 +24,7 @@ const hotelsData = [
     stars: 4,
     availableDates: "2025-03-19",
     image: "/Images/break2.jpg",
-    rating: 4,
+    rating: 8.7,
     review: "5.9 Review Score",
     reviewsCount: 3,
     description: "Stone’s throw away from Kensington Palace.",
@@ -37,7 +37,7 @@ const hotelsData = [
     availableDates: "2025-03-20",
     stars: 5,
     image: "/Images/break3.webp",
-    rating: 4,
+    rating: 10.0,
     review: "6.7 Good",
     reviewsCount: 2064,
     description:
@@ -57,6 +57,8 @@ const Londonbreakfast = () => {
     selectedCountry,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
 
@@ -77,6 +79,11 @@ const Londonbreakfast = () => {
         isAscending ? a.price - b.price : b.price - a.price
       );
     }
+    if (selectedRating === "Rating") {
+      assignValue.sort((a, b) =>
+        isAscendingRating ? a.rating - b.rating : b.rating - a.rating
+      );
+    }
     setFilteredHotels(assignValue);
     console.log("Filtered Hotels:", assignValue);
     console.log(selectedCountry);
@@ -95,6 +102,8 @@ const Londonbreakfast = () => {
     selectedDate,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   ]);
 
   return (
@@ -117,7 +126,7 @@ const Londonbreakfast = () => {
                   <div className="card-body">
                     <h5 className="text-primary">{hotel.name}</h5>
                     <p className="mb-1">
-                      {hotel.review} <br />
+                      {hotel.rating} <br />
                       <small className="text-muted">
                         Based on {hotel.reviewsCount} reviews
                       </small>

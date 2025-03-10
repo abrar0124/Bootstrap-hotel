@@ -12,7 +12,7 @@ const hotelsData = [
     price: 28000,
     stars: 4,
     image: "/Images/Luxuryhotel1.webp",
-    rating: 4,
+    rating: 9.4,
     review: "6.9 Good",
     reviewsCount: 434,
     description: "Beautiful residential area, near the embassy row.",
@@ -25,7 +25,7 @@ const hotelsData = [
     price: 23000,
     stars: 5,
     image: "/Images/Luxuryhotel2.webp",
-    rating: 4,
+    rating: 10.0,
     review: "5.9 Review Score",
     reviewsCount: 3,
     description: "Stone’s throw away from Kensington Palace.",
@@ -38,7 +38,7 @@ const hotelsData = [
     price: 24000,
     stars: 3,
     image: "/Images/Luxuryhotel3.webp",
-    rating: 4,
+    rating: 7.8,
     review: "6.7 Good",
     reviewsCount: 2064,
     description:
@@ -58,6 +58,8 @@ const Luxuryhotel = () => {
     selectedCountry,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
 
@@ -78,6 +80,11 @@ const Luxuryhotel = () => {
         isAscending ? a.price - b.price : b.price - a.price
       );
     }
+    if (selectedRating === "Rating") {
+      assignValue.sort((a, b) =>
+        isAscendingRating ? a.rating - b.rating : b.rating - a.rating
+      );
+    }
     setFilteredHotels(assignValue);
     console.log("Filtered Hotels:", assignValue);
     console.log(selectedCountry);
@@ -96,6 +103,8 @@ const Luxuryhotel = () => {
     selectedDate,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   ]);
 
   return (
@@ -118,7 +127,7 @@ const Luxuryhotel = () => {
                   <div className="card-body">
                     <h5 className="text-primary">{hotel.name}</h5>
                     <p className="mb-1">
-                      {hotel.review} <br />
+                      {hotel.rating} <br />
                       <small className="text-muted">
                         Based on {hotel.reviewsCount} reviews
                       </small>

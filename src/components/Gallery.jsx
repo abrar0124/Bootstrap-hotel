@@ -12,7 +12,7 @@ const Gallery = () => {
       name: "Britannia International Hotel",
       Country: "Italy",
       location: "Canary Wharf, Italy",
-      rating: 6.9,
+      rating: 9.5,
       reviews: 2109,
       price: 11000,
       availableDates: "2025-02-28",
@@ -36,7 +36,7 @@ const Gallery = () => {
       name: "France Court Hotel",
       Country: "France",
       location: "St Katharine's France",
-      rating: 8.2,
+      rating: 7.9,
       reviews: 3405,
       price: 5000,
       availableDates: "2025-03-05",
@@ -62,7 +62,7 @@ const Gallery = () => {
       Country: "Germany",
       stars: 2,
       location: "St Katharine's, Germany",
-      rating: 8.2,
+      rating: 4.2,
       reviews: 3405,
       price: 6000, // ✅ Numeric Price
       availableDates: "2025-03-07",
@@ -87,7 +87,7 @@ const Gallery = () => {
       // place: "in Holloway Road",
       stars: 2,
       location: "St Katharine's, America",
-      rating: 8.2,
+      rating: 4.5,
       reviews: 3405,
       price: 50000, // ✅ Numeric Price
       availableDates: "2025-03-20",
@@ -111,7 +111,7 @@ const Gallery = () => {
       // place: "- Dartford",
       stars: 1,
       location: "St Katharine's, Japan",
-      rating: 8.2,
+      rating: 2.1,
       reviews: 3405,
       price: 23000,
       availableDates: "2025-03-04",
@@ -137,7 +137,7 @@ const Gallery = () => {
       // place: "Victoria",
       stars: 5,
       location: "St Katharine's Austria",
-      rating: 8.2,
+      rating: 7.5,
       reviews: 3405,
       price: 4000,
       availableDates: "2025-03-21",
@@ -160,7 +160,7 @@ const Gallery = () => {
       Country: "Canada",
       stars: 4, // ⭐ Hotel ki total star rating
       location: "St Katharine's, Canada",
-      rating: 8.2,
+      rating: 8.5,
       reviews: 3405,
       price: 19000,
       availableDates: "2025-03-06",
@@ -185,7 +185,7 @@ const Gallery = () => {
       // place: "and Castle",
       stars: 3, // ⭐ Hotel ki total star rating
       location: "St Katharine's, Canada",
-      rating: 8.2,
+      rating: 7.6,
       reviews: 3405,
       price: 10000, // ✅ Numeric Price
       availableDates: "2025-03-20",
@@ -208,7 +208,7 @@ const Gallery = () => {
       // place: "Central",
       stars: 2, // ⭐ Hotel ki total star rating
       location: "St Katharine's Dubai",
-      rating: 8.2,
+      rating: 5.9,
       reviews: 3405,
       price: 20000,
       availableDates: "2025-03-22",
@@ -234,7 +234,7 @@ const Gallery = () => {
       // place: " Victoria",
       stars: 1, // ⭐ Hotel ki total star rating
       location: "St Katharine's , Bombay",
-      rating: 8.2,
+      rating: 2.6,
       reviews: 3405,
       price: 80000, // ✅ Numeric Price
       availableDates: "2025-03-09",
@@ -260,7 +260,7 @@ const Gallery = () => {
       // place: " Victoria",
       stars: 5, // ⭐ Hotel ki total star rating
       location: "St Katharine's ,England",
-      rating: 8.2,
+      rating: 10.0,
       reviews: 3405,
       price: 30000,
       availableDates: "2025-03-12",
@@ -285,7 +285,7 @@ const Gallery = () => {
       // place: " Victoria",
       stars: 4, // ⭐ Hotel ki total star rating
       location: "St Katharine's , Australia",
-      rating: 8.2,
+      rating: 8.7,
       reviews: 3405,
       price: 3000, // ✅ Numeric Price
       availableDates: "2025-03-10",
@@ -311,7 +311,7 @@ const Gallery = () => {
       // place: "Canary Wharf",
       stars: 3, // ⭐ Hotel ki total star rating
       location: "Canary Wharf Italy,",
-      rating: 6.9,
+      rating: 6.4,
       reviews: 2109,
       price: 15000, // ✅ Numeric Price
       availableDates: "2025-02-28", // ✅ Correct Format
@@ -335,7 +335,7 @@ const Gallery = () => {
       Country: "France",
       stars: 3, // ⭐ Hotel ki total star rating
       location: "St Katharine's France",
-      rating: 8.2,
+      rating: 6.9,
       reviews: 3405,
       price: 9000, // ✅ Numeric Price
       availableDates: "2025-03-01",
@@ -360,7 +360,7 @@ const Gallery = () => {
       Country: "Germany",
       stars: 3, // ⭐ Hotel ki total star rating
       location: "St Katharine's, Germany",
-      rating: 8.2,
+      rating: 7.2,
       reviews: 3405,
       price: 10000, // ✅ Numeric Price
       availableDates: "2025-03-02",
@@ -387,7 +387,7 @@ const Gallery = () => {
 
       stars: 1, // ⭐ Hotel ki total star rating
       location: "St Katharine's,America",
-      rating: 8.2,
+      rating: 3.1,
       reviews: 3405,
       price: 7000, // ✅ Numeric Price
       availableDates: "2025-03-03",
@@ -412,7 +412,7 @@ const Gallery = () => {
       stars: 5, // ⭐ Hotel ki total star rating
 
       location: "St Katharine's, Japan",
-      rating: 8.2,
+      rating: 10.0,
       reviews: 3405,
       price: 8000,
       availableDates: "2025-03-15",
@@ -438,11 +438,10 @@ const Gallery = () => {
       // place: "Victoria",
       stars: 4, // ⭐ Hotel ki total star rating
       location: "St Katharine's Austria",
-      rating: 8.2,
+      rating: 8.9,
       reviews: 3405,
       price: 10000,
       availableDates: "2025-03-05",
-
       discription: "The hotel room is big, great location and lovely staff",
       mainImage: "/Images/Austeria.jpeg",
       gallery: [
@@ -462,7 +461,7 @@ const Gallery = () => {
       Country: "Africa",
       stars: 3, // ⭐ Hotel ki total star rating
       location: "St Katharine's, Africa",
-      rating: 8.2,
+      rating: 7.9,
       reviews: 3405,
       price: 5000, // ✅ Numeric Price
       availableDates: "2025-03-23",
@@ -488,7 +487,7 @@ const Gallery = () => {
       // place: "and Castle",
       stars: 2, // ⭐ Hotel ki total star rating
       location: "St Katharine's,Africa",
-      rating: 8.2,
+      rating: 3.2,
       reviews: 3405,
       price: 1000, // ✅ Numeric Price
       availableDates: "2025-03-07",
@@ -512,7 +511,7 @@ const Gallery = () => {
       // place: "Central",
       stars: 1, // ⭐ Hotel ki total star rating
       location: "St Katharine's  Dubai",
-      rating: 8.2,
+      rating: 2.2,
       reviews: 3405,
       price: 2000, // ✅ Numeric Price
       availableDates: "2025-03-08",
@@ -537,7 +536,7 @@ const Gallery = () => {
       // place: " Victoria",
       stars: 5, // ⭐ Hotel ki total star rating
       location: "St Katharine's , Bombay",
-      rating: 8.2,
+      rating: 10.0,
       reviews: 3405,
       price: 3000, // ✅ Numeric Price
       availableDates: "2025-03-27",
@@ -564,7 +563,7 @@ const Gallery = () => {
       stars: 4, // ⭐ Hotel ki total star rating
 
       location: "St Katharine's ,England",
-      rating: 8.2,
+      rating: 8.9,
       reviews: 3405,
       price: 3000, // ✅ Numeric Price
       availableDates: "2025-03-10",
@@ -589,7 +588,7 @@ const Gallery = () => {
       // place: " Victoria",
       stars: 3, // ⭐ Hotel ki total star rating
       location: "St Katharine's , Australia",
-      rating: 8.2,
+      rating: 6.1,
       reviews: 3405,
       price: 3000,
       availableDates: "2025-03-19",
@@ -619,6 +618,8 @@ const Gallery = () => {
     selectedCountry,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
 
@@ -639,10 +640,16 @@ const Gallery = () => {
         isAscending ? a.price - b.price : b.price - a.price
       );
     }
+    if (selectedRating === "Rating") {
+      assignValue.sort((a, b) =>
+        isAscendingRating ? a.rating - b.rating : b.rating - a.rating
+      );
+    }
     setFilteredHotels(assignValue);
     console.log("Filtered Hotels:", assignValue);
     console.log(selectedCountry);
   };
+
   // all filters will be re-render but selectedcountry will be just
   // render means first mount.
   useEffect(() => {
@@ -656,6 +663,8 @@ const Gallery = () => {
     selectedDate,
     isAscending,
     sortBy,
+    selectedRating,
+    isAscendingRating,
   ]);
 
   return (

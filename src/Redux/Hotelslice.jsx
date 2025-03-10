@@ -14,7 +14,9 @@ const initialState = {
   minprice: null,
   maxprice: null,
   activeButton: "ourTopPicks",
-  activeDropdown: null, // ✅ Add this
+  activeDropdown: null,
+  selectedRating: null,
+  isAscendingRating: true,
 };
 
 const hotelSlice = createSlice({
@@ -64,6 +66,12 @@ const hotelSlice = createSlice({
       state.activeDropdown =
         state.activeDropdown === action.payload ? null : action.payload;
     },
+    setSelectedRating: (state, action) => {
+      state.selectedRating = action.payload;
+    },
+    toggleRatingorder: (state) => {
+      state.isAscendingRating = !state.isAscendingRating;
+    },
   },
 });
 
@@ -80,7 +88,9 @@ export const {
   setSelectedProduct,
   setActiveButton,
   setActiveDropdown,
-  setSelectedCountry, // ✅ Export karein
+  setSelectedCountry,
+  setSelectedRating,
+  toggleRatingorder,
 } = hotelSlice.actions;
 
 export default hotelSlice.reducer;
