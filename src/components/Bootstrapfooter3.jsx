@@ -8,7 +8,7 @@ const Bootstrapfooter3 = () => {
     <div className=" custom-footer footer  text-white  text-center py-4">
       <div className="container">
         <Text
-          type={"p"}
+          type={"h6"}
           content={
             <>
               All material herein © 2005-2025 Agoda Company Pte. Ltd. All Rights
@@ -29,7 +29,7 @@ const Bootstrapfooter3 = () => {
             />
           </div>
           <div className="col-6 col-md-2">
-            <Text type={"p"} content={"Priceline.com"} />
+            <Text type={"h6"} content={"Priceline.com"} />
           </div>
           <div className="col-6 col-md-2">
             <img
@@ -39,13 +39,13 @@ const Bootstrapfooter3 = () => {
             />
           </div>
           <div className="col-6 col-md-2">
-            <Text type={"p"} content={"Booking.com"} />
+            <Text type={"h6"} content={"Booking.com"} />
           </div>
           <div className="col-6 col-md-2">
-            <Text type={"p"} content={"Opentable"} />
+            <Text type={"h6"} content={"Opentable"} />
           </div>
         </div>
-        <Text type={"p"} content={"sg-pc-6g-geo-web-user-5956d79776-kvrpk"} />
+        <Text type={"h6"} content={"sg-pc-6g-geo-web-user-5956d79776-kvrpk"} />
       </div>
     </div>
   );
