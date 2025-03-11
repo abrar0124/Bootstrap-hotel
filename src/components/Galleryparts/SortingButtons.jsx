@@ -17,7 +17,7 @@ const SortingButtons = () => {
   return (
     <div className="btn-group mb-2 " style={{ width: "960px" }}>
       <button
-        className={`p-2 btn btn-lg border rounded fs ${
+        className={`p-2 btn btn-lg border rounded fs  ${
           activeButton === "ourTopPicks" ? "btn-primary text-white " : ""
         }`}
         onClick={() => dispatch(setActiveButton("ourTopPicks"))}
@@ -68,7 +68,7 @@ const SortingButtons = () => {
       </div>
 
       <button
-        className={`custom-btn p-3 btn border btn-lg rounded fs ${
+        className={`custom-btn p-3 btn border btn-lg rounded fs  ${
           activeButton === "priceSort" ? "btn-primary text-white" : ""
         }`}
         onClick={() => {
@@ -158,7 +158,7 @@ const SortingButtons = () => {
       </div>
 
       <button
-        className={`custom-btn p-3 btn border btn-lg rounded fs ${
+        className={`custom-btn p-3 btn border btn-lg rounded fs  ${
           activeButton === "nearest" ? "btn-primary text-white" : ""
         }`}
         onClick={() => dispatch(setActiveButton("nearest"))}
@@ -167,7 +167,7 @@ const SortingButtons = () => {
       </button>
 
       <button
-        className={`custom-btn p-3 btn border btn-lg rounded fs ${
+        className={`custom-btn p-3 btn border btn-lg rounded fs  ${
           activeButton === "bestReviewed" ? "btn-primary text-white" : ""
         }`}
         onClick={() => {

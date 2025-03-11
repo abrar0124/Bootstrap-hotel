@@ -4,6 +4,7 @@ import {
   toggleStarFilter,
   clearstarfilter,
 } from "../../Redux/Hotelslice";
+import MinMaxselection from "./MinMaxselection";
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Filters = () => {
 
   return (
     <>
+      <MinMaxselection />
       {selectedStars.length > 0 && (
         <div
           className="card p-3 my-3"
@@ -66,8 +68,9 @@ const Filters = () => {
             placeholder="Enter price..."
             value={selectedPrice || ""}
             onChange={(e) =>
-              dispatch(setPriceFilter(Number(e.target.value) || null))
+              dispatch(setPriceFilter(Number(e.target.value)) || null)
             }
+            onWheel={(e) => e.target.blur()}
           />
         </div>
       </div>
